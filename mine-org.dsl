@@ -4535,6 +4535,19 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                         }
                         EndDependentFn ()
                     })
+                    Method (_DSM, 4, NotSerialized)
+                    {
+                        Store (Package (0x02)
+                            {
+                                "AAPL,has-embedded-fn-keys", 
+                                Buffer (0x04)
+                                {
+                                    0x01, 0x00, 0x00, 0x00
+                                }
+                            }, Local0)
+                        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                        Return (Local0)
+                    }
                 }
                 Device (PS2M)
                 {
@@ -4648,22 +4661,22 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                         Name (_UID, "ATK")
                         Name (ATKQ, Package (0x10)
                         {
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF, 
-                            0xFFFFFFFF
+                            Ones, 
+                            Ones, 
+                            Ones, 
+                            Ones, 
+                            Ones, 
+                            Ones, 
+                            Ones, 
+                            Ones, 
+                            Ones, 
+                            Ones, 
+                            Ones, 
+                            Ones, 
+                            Ones, 
+                            Ones, 
+                            Ones, 
+                            Ones
                         })
                         Name (AQHI, Zero)
                         Name (AQTI, 0x0F)
