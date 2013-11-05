@@ -6278,6 +6278,58 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                         ,   15, 
                     PMES,   1
                 }
+
+                Method (_DSM, 4, NotSerialized)
+                {
+                    Store (Package (0x0E)
+                        {
+                            "codec-id", 
+                            Buffer (0x04)
+                            {
+                                0x69, 0x02, 0xEC, 0x10
+                            }, 
+
+                            "built-in", 
+                            Buffer (One)
+                            {
+                                0x00
+                            }, 
+
+                            "hda-gfx", 
+                            Buffer (0x0A)
+                            {
+                                "onboard-2"
+                            }, 
+
+                            "layout-id", 
+                            Buffer (0x04)
+                            {
+                                0x0D, 0x01, 0x00, 0x00
+                            }, 
+
+                            "model", 
+                            Buffer (0x25)
+                            {
+                                "Realtek ALC269 & Intel Display Audio"
+                            }, 
+
+                            "device-type", 
+                            Buffer (0x21)
+                            {
+                                "High Definition Audio Controller"
+                            }, 
+
+                            "PinConfigurations", 
+                            Buffer (0x14)
+                            {
+                                /* 0000 */    0x10, 0x01, 0x13, 0x99, 0x40, 0x40, 0x21, 0x01, 
+                                /* 0008 */    0x30, 0x90, 0xA1, 0x01, 0x50, 0x00, 0xA3, 0x90, 
+                                /* 0010 */    0x20, 0x00, 0x56, 0x18
+                            }
+                        }, Local0)
+                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                    Return (Local0)
+                }
             }
             Device (RP01)
             {
