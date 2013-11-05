@@ -9684,6 +9684,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                 Notify (\_SB.PCI0.PEGR.GFX0, 0x02)
             }
         }
+        Device (PNLF)
+        {
+            Name (_HID, EisaId ("APP0002"))
+            Name (_CID, "backlight")
+            Name (_UID, 0x0A)
+            Name (_STA, 0x0B)
+        }
     }
     Scope (\_SB)
     {
