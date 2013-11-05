@@ -13872,4 +13872,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                         }, Arg4)
                     Return (One)
                 }
+                If (LEqual (Arg2, One))
+                {
+                    Return (One)
+                }
+            }
+        }
+        Store (Buffer (One)
+            {
+                0x00
+            }, Arg4)
+        Return (Zero)
+    }
 }
