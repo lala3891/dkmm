@@ -3395,7 +3395,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                         }
                         Method (PECI, 7, Serialized)
                         {
-                            Name (_T_0, Zero)
+                            Name (T_0, Zero)
                             While (LEqual (And (\_SB.PCI0.LPCB.EC0.PBSY, 0x02), 0x02))
                             {
                                 If (LGreater (Arg6, 0x1000))
@@ -3416,85 +3416,85 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (HCMD), _T_0)
-                                    If (LEqual (_T_0, 0xF7))
+                                    Store (ToInteger (HCMD), T_0)
+                                    If (LEqual (T_0, 0xF7))
                                     {
                                         Store (0x00, TEMP)
                                         Break
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x01))
+                                        If (LEqual (T_0, 0x01))
                                         {
                                             Store (0x00, TEMP)
                                             Break
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x02))
+                                            If (LEqual (T_0, 0x02))
                                             {
                                                 Store (0x00, TEMP)
                                                 Break
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0xA1))
+                                                If (LEqual (T_0, 0xA1))
                                                 {
                                                     Store (Subtract (Arg1, 0x01), TEMP)
                                                     Break
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0xA2))
+                                                    If (LEqual (T_0, 0xA2))
                                                     {
                                                         Store (Subtract (Arg1, 0x01), TEMP)
                                                         Break
                                                     }
                                                     Else
                                                     {
-                                                        If (LEqual (_T_0, 0xB1))
+                                                        If (LEqual (T_0, 0xB1))
                                                         {
                                                             Store (Subtract (Arg1, 0x01), TEMP)
                                                             Break
                                                         }
                                                         Else
                                                         {
-                                                            If (LEqual (_T_0, 0xB2))
+                                                            If (LEqual (T_0, 0xB2))
                                                             {
                                                                 Store (Subtract (Arg1, 0x01), TEMP)
                                                                 Break
                                                             }
                                                             Else
                                                             {
-                                                                If (LEqual (_T_0, 0x61))
+                                                                If (LEqual (T_0, 0x61))
                                                                 {
                                                                     Store (Subtract (Arg1, 0x01), TEMP)
                                                                     Break
                                                                 }
                                                                 Else
                                                                 {
-                                                                    If (LEqual (_T_0, 0x62))
+                                                                    If (LEqual (T_0, 0x62))
                                                                     {
                                                                         Store (Subtract (Arg1, 0x01), TEMP)
                                                                         Break
                                                                     }
                                                                     Else
                                                                     {
-                                                                        If (LEqual (_T_0, 0xE1))
+                                                                        If (LEqual (T_0, 0xE1))
                                                                         {
                                                                             Store (Subtract (Arg1, 0x01), TEMP)
                                                                             Break
                                                                         }
                                                                         Else
                                                                         {
-                                                                            If (LEqual (_T_0, 0xE2))
+                                                                            If (LEqual (T_0, 0xE2))
                                                                             {
                                                                                 Store (Subtract (Arg1, 0x01), TEMP)
                                                                                 Break
                                                                             }
                                                                             Else
                                                                             {
-                                                                                If (LEqual (_T_0, 0xA5))
+                                                                                If (LEqual (T_0, 0xA5))
                                                                                 {
                                                                                     Or (HCTL, 0x40, HCTL)
                                                                                     Store (Subtract (Arg1, 0x02), TEMP)
@@ -3502,7 +3502,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                                                                                 }
                                                                                 Else
                                                                                 {
-                                                                                    If (LEqual (_T_0, 0xA6))
+                                                                                    If (LEqual (T_0, 0xA6))
                                                                                     {
                                                                                         Or (HCTL, 0x40, HCTL)
                                                                                         Store (Subtract (Arg1, 0x02), TEMP)
@@ -3510,7 +3510,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                                                                                     }
                                                                                     Else
                                                                                     {
-                                                                                        If (LEqual (_T_0, 0xB5))
+                                                                                        If (LEqual (T_0, 0xB5))
                                                                                         {
                                                                                             Or (HCTL, 0x40, HCTL)
                                                                                             Store (Subtract (Arg1, 0x02), TEMP)
@@ -3518,7 +3518,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                                                                                         }
                                                                                         Else
                                                                                         {
-                                                                                            If (LEqual (_T_0, 0xB6))
+                                                                                            If (LEqual (T_0, 0xB6))
                                                                                             {
                                                                                                 Or (HCTL, 0x40, HCTL)
                                                                                                 Store (Subtract (Arg1, 0x02), TEMP)
@@ -3526,7 +3526,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                                                                                             }
                                                                                             Else
                                                                                             {
-                                                                                                If (LEqual (_T_0, 0x65))
+                                                                                                If (LEqual (T_0, 0x65))
                                                                                                 {
                                                                                                     Or (HCTL, 0x40, HCTL)
                                                                                                     Store (Subtract (Arg1, 0x02), TEMP)
@@ -3534,7 +3534,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                                                                                                 }
                                                                                                 Else
                                                                                                 {
-                                                                                                    If (LEqual (_T_0, 0x66))
+                                                                                                    If (LEqual (T_0, 0x66))
                                                                                                     {
                                                                                                         Or (HCTL, 0x40, HCTL)
                                                                                                         Store (Subtract (Arg1, 0x02), TEMP)
@@ -3542,7 +3542,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                                                                                                     }
                                                                                                     Else
                                                                                                     {
-                                                                                                        If (LEqual (_T_0, 0xE5))
+                                                                                                        If (LEqual (T_0, 0xE5))
                                                                                                         {
                                                                                                             Or (HCTL, 0x40, HCTL)
                                                                                                             Store (Subtract (Arg1, 0x02), TEMP)
@@ -3550,7 +3550,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                                                                                                         }
                                                                                                         Else
                                                                                                         {
-                                                                                                            If (LEqual (_T_0, 0xE6))
+                                                                                                            If (LEqual (T_0, 0xE6))
                                                                                                             {
                                                                                                                 Or (HCTL, 0x40, HCTL)
                                                                                                                 Store (Subtract (Arg1, 0x02), TEMP)
@@ -4716,46 +4716,46 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                         })
                         Method (WMNB, 3, Serialized)
                         {
-                            Name (_T_0, Zero)
+                            Name (T_0, Zero)
                             CreateDWordField (Arg2, 0x00, IIA0)
                             CreateDWordField (Arg2, 0x04, IIA1)
                             And (Arg1, 0xFFFFFFFF, Local0)
                             While (One)
                             {
-                                Store (Local0, _T_0)
-                                If (LEqual (_T_0, 0x54494E49))
+                                Store (Local0, T_0)
+                                If (LEqual (T_0, 0x54494E49))
                                 {
                                     INIT (IIA0)
                                     Return (0x01)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x53545342))
+                                    If (LEqual (T_0, 0x53545342))
                                     {
                                         Return (BSTS ())
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x4E554653))
+                                        If (LEqual (T_0, 0x4E554653))
                                         {
                                             Return (SFUN ())
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x494E424B))
+                                            If (LEqual (T_0, 0x494E424B))
                                             {
                                                 Return (KBNI ())
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x5256534F))
+                                                If (LEqual (T_0, 0x5256534F))
                                                 {
                                                     OSVR (IIA0)
                                                     Return (0x00)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x53545344))
+                                                    If (LEqual (T_0, 0x53545344))
                                                     {
                                                         If (LEqual (IIA0, 0x00010002))
                                                         {
@@ -4834,7 +4834,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                                                     }
                                                     Else
                                                     {
-                                                        If (LEqual (_T_0, 0x53564544))
+                                                        If (LEqual (T_0, 0x53564544))
                                                         {
                                                             If (LEqual (IIA0, 0x00020011))
                                                             {
@@ -4910,119 +4910,119 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                                                         }
                                                         Else
                                                         {
-                                                            If (LEqual (_T_0, 0x48534C46))
+                                                            If (LEqual (T_0, 0x48534C46))
                                                             {
                                                                 FLSH (IIA0)
                                                                 Return (0x01)
                                                             }
                                                             Else
                                                             {
-                                                                If (LEqual (_T_0, 0x494E4946))
+                                                                If (LEqual (T_0, 0x494E4946))
                                                                 {
                                                                     Return (FINI (IIA0))
                                                                 }
                                                                 Else
                                                                 {
-                                                                    If (LEqual (_T_0, 0x53524546))
+                                                                    If (LEqual (T_0, 0x53524546))
                                                                     {
                                                                         Return (FERS (IIA0))
                                                                     }
                                                                     Else
                                                                     {
-                                                                        If (LEqual (_T_0, 0x49525746))
+                                                                        If (LEqual (T_0, 0x49525746))
                                                                         {
                                                                             Return (FWRI (IIA0))
                                                                         }
                                                                         Else
                                                                         {
-                                                                            If (LEqual (_T_0, 0x50525746))
+                                                                            If (LEqual (T_0, 0x50525746))
                                                                             {
                                                                                 Return (FWRP ())
                                                                             }
                                                                             Else
                                                                             {
-                                                                                If (LEqual (_T_0, 0x52534345))
+                                                                                If (LEqual (T_0, 0x52534345))
                                                                                 {
                                                                                     Return (ECSR (IIA0))
                                                                                 }
                                                                                 Else
                                                                                 {
-                                                                                    If (LEqual (_T_0, 0x43534C46))
+                                                                                    If (LEqual (T_0, 0x43534C46))
                                                                                     {
                                                                                         Return (FLSC (IIA0))
                                                                                     }
                                                                                     Else
                                                                                     {
-                                                                                        If (LEqual (_T_0, 0x43455246))
+                                                                                        If (LEqual (T_0, 0x43455246))
                                                                                         {
                                                                                             Return (FREC (IIA0))
                                                                                         }
                                                                                         Else
                                                                                         {
-                                                                                            If (LEqual (_T_0, 0x50534453))
+                                                                                            If (LEqual (T_0, 0x50534453))
                                                                                             {
                                                                                                 SDSP (IIA0)
                                                                                                 Return (0x01)
                                                                                             }
                                                                                             Else
                                                                                             {
-                                                                                                If (LEqual (_T_0, 0x50534447))
+                                                                                                If (LEqual (T_0, 0x50534447))
                                                                                                 {
                                                                                                     Return (GDSP (IIA0))
                                                                                                 }
                                                                                                 Else
                                                                                                 {
-                                                                                                    If (LEqual (_T_0, 0x44495047))
+                                                                                                    If (LEqual (T_0, 0x44495047))
                                                                                                     {
                                                                                                         Return (GPID ())
                                                                                                     }
                                                                                                     Else
                                                                                                     {
-                                                                                                        If (LEqual (_T_0, 0x44434C47))
+                                                                                                        If (LEqual (T_0, 0x44434C47))
                                                                                                         {
                                                                                                             Return (GLCD ())
                                                                                                         }
                                                                                                         Else
                                                                                                         {
-                                                                                                            If (LEqual (_T_0, 0x49564E41))
+                                                                                                            If (LEqual (T_0, 0x49564E41))
                                                                                                             {
                                                                                                                 Return (ANVI (IIA0))
                                                                                                             }
                                                                                                             Else
                                                                                                             {
-                                                                                                                If (LEqual (_T_0, 0x46494243))
+                                                                                                                If (LEqual (T_0, 0x46494243))
                                                                                                                 {
                                                                                                                     Return (CBIF (IIA0))
                                                                                                                 }
                                                                                                                 Else
                                                                                                                 {
-                                                                                                                    If (LEqual (_T_0, 0x4E464741))
+                                                                                                                    If (LEqual (T_0, 0x4E464741))
                                                                                                                     {
                                                                                                                         Return (AGFN (IIA0))
                                                                                                                     }
                                                                                                                     Else
                                                                                                                     {
-                                                                                                                        If (LEqual (_T_0, 0x46494643))
+                                                                                                                        If (LEqual (T_0, 0x46494643))
                                                                                                                         {
                                                                                                                             CFIF (IIA0)
                                                                                                                             Return (0x01)
                                                                                                                         }
                                                                                                                         Else
                                                                                                                         {
-                                                                                                                            If (LEqual (_T_0, 0x44495046))
+                                                                                                                            If (LEqual (T_0, 0x44495046))
                                                                                                                             {
                                                                                                                                 Return (FPID ())
                                                                                                                             }
                                                                                                                             Else
                                                                                                                             {
-                                                                                                                                If (LEqual (_T_0, 0x59454B48))
+                                                                                                                                If (LEqual (T_0, 0x59454B48))
                                                                                                                                 {
                                                                                                                                     HKEY ()
                                                                                                                                     Return (0x01)
                                                                                                                                 }
                                                                                                                                 Else
                                                                                                                                 {
-                                                                                                                                    If (LEqual (_T_0, 0x5446424B))
+                                                                                                                                    If (LEqual (T_0, 0x5446424B))
                                                                                                                                     {
                                                                                                                                         KBFT (IIA0)
                                                                                                                                         Return (0x01)
@@ -8861,7 +8861,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                 }
                 Method (_DSM, 4, Serialized)
                 {
-                    Name (_T_0, Zero)
+                    Name (T_0, Zero)
                     If (LEqual (Arg0, Buffer (0x10)
                             {
                                 /* 0000 */   0xF8, 0xD8, 0x86, 0xA4, 0xDA, 0x0B, 0x1B, 0x47,
@@ -8886,8 +8886,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                         Store ("Optimus _DSM is called ", Debug)
                         While (One)
                         {
-                            Store (Arg2, _T_0)
-                            If (LEqual (_T_0, 0x00))
+                            Store (Arg2, T_0)
+                            If (LEqual (T_0, 0x00))
                             {
                                 Store ("Optimus _DSM subfunc 0, return 0x04000001 ", Debug)
                                 Return (Buffer (0x04)
@@ -8897,7 +8897,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x1A))
+                                If (LEqual (T_0, 0x1A))
                                 {
                                     Store ("Optimus _DSM subfunc 26 ", Debug)
                                     If (And (Local0, One))
@@ -10536,8 +10536,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
             Name (_ADR, 0x0001FFFF)
             Method (_DSM, 4, Serialized)
             {
-                Name (_T_1, Zero)
-                Name (_T_0, Zero)
+                Name (T_1, Zero)
+                Name (T_0, Zero)
                 If (LEqual (Arg0, Buffer (0x10)
                         {
                             /* 0000 */   0x30, 0xEF, 0xFA, 0xBD, 0xBB, 0xAE, 0xDE, 0x11,
@@ -10546,13 +10546,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                 {
                     While (One)
                     {
-                        Store (ToInteger (Arg2), _T_0)
-                        If (LEqual (_T_0, 0x00))
+                        Store (ToInteger (Arg2), T_0)
+                        If (LEqual (T_0, 0x00))
                         {
                             While (One)
                             {
-                                Store (ToInteger (Arg1), _T_1)
-                                If (LEqual (_T_1, 0x01))
+                                Store (ToInteger (Arg1), T_1)
+                                If (LEqual (T_1, 0x01))
                                 {
                                     If (LEqual (PFLV, FDTP))
                                     {
@@ -10578,13 +10578,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x01))
+                            If (LEqual (T_0, 0x01))
                             {
                                 Return (0x01)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x02))
+                                If (LEqual (T_0, 0x02))
                                 {
                                     Store (0x00, GPE3)
                                     Store (0x01, GPS3)
@@ -10606,7 +10606,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x03))
+                                    If (LEqual (T_0, 0x03))
                                     {
                                         If (OFLG)
                                         {
@@ -10642,8 +10642,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
             Name (_ADR, 0x0002FFFF)
             Method (_DSM, 4, Serialized)
             {
-                Name (_T_1, Zero)
-                Name (_T_0, Zero)
+                Name (T_1, Zero)
+                Name (T_0, Zero)
                 If (LEqual (Arg0, Buffer (0x10)
                         {
                             /* 0000 */   0x30, 0xEF, 0xFA, 0xBD, 0xBB, 0xAE, 0xDE, 0x11,
@@ -10652,13 +10652,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                 {
                     While (One)
                     {
-                        Store (ToInteger (Arg2), _T_0)
-                        If (LEqual (_T_0, 0x00))
+                        Store (ToInteger (Arg2), T_0)
+                        If (LEqual (T_0, 0x00))
                         {
                             While (One)
                             {
-                                Store (ToInteger (Arg1), _T_1)
-                                If (LEqual (_T_1, 0x01))
+                                Store (ToInteger (Arg1), T_1)
+                                If (LEqual (T_1, 0x01))
                                 {
                                     If (LEqual (PFLV, FDTP))
                                     {
@@ -10684,13 +10684,13 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                         }
                         Else
                         {
-                            If (LEqual (_T_0, 0x01))
+                            If (LEqual (T_0, 0x01))
                             {
                                 Return (0x01)
                             }
                             Else
                             {
-                                If (LEqual (_T_0, 0x02))
+                                If (LEqual (T_0, 0x02))
                                 {
                                     Store (0x00, GPE3)
                                     Store (0x01, GPS3)
@@ -10712,7 +10712,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                                 }
                                 Else
                                 {
-                                    If (LEqual (_T_0, 0x03))
+                                    If (LEqual (T_0, 0x03))
                                     {
                                         If (OFLG)
                                         {
@@ -11778,7 +11778,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
         }
         Method (_Q11, 0, Serialized)
         {
-            Name (_T_0, Zero)
+            Name (T_0, Zero)
             FHKW ()
             Store (\ADVG (), Local0)
             If (\NATK ())
@@ -11807,38 +11807,38 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                             {
                                 While (One)
                                 {
-                                    Store (ToInteger (Local0), _T_0)
-                                    If (LEqual (_T_0, 0x20))
+                                    Store (ToInteger (Local0), T_0)
+                                    If (LEqual (T_0, 0x20))
                                     {
                                         Store (0xD0, Local1)
                                     }
                                     Else
                                     {
-                                        If (LEqual (_T_0, 0x21))
+                                        If (LEqual (T_0, 0x21))
                                         {
                                             Store (0xD1, Local1)
                                         }
                                         Else
                                         {
-                                            If (LEqual (_T_0, 0x22))
+                                            If (LEqual (T_0, 0x22))
                                             {
                                                 Store (0xD2, Local1)
                                             }
                                             Else
                                             {
-                                                If (LEqual (_T_0, 0x24))
+                                                If (LEqual (T_0, 0x24))
                                                 {
                                                     Store (0xD3, Local1)
                                                 }
                                                 Else
                                                 {
-                                                    If (LEqual (_T_0, 0x28))
+                                                    If (LEqual (T_0, 0x28))
                                                     {
                                                         Store (0xD4, Local1)
                                                     }
                                                     Else
                                                     {
-                                                        If (LEqual (_T_0, 0x30))
+                                                        If (LEqual (T_0, 0x30))
                                                         {
                                                             Store (0xD5, Local1)
                                                         }
