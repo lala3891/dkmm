@@ -2787,6 +2787,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                     Name (_UID, 0x00)
                     Name (BUF0, ResourceTemplate ()
                     {
+                        IRQNoFlags ()
+                            {0}
+                        IRQNoFlags ()
+                            {8}
+                        IRQNoFlags ()
+                            {11}
+                        IRQNoFlags ()
+                            {15}
                         Memory32Fixed (ReadWrite,
                             0xFED00000,         // Address Base
                             0x00000400,         // Address Length
@@ -2794,21 +2802,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
                     })
                     Method (_STA, 0, NotSerialized)
                     {
-                        If (LGreaterEqual (OSYS, 0x07D1))
-                        {
-                            If (HPAE)
-                            {
-                                Return (0x0F)
-                            }
-                        }
-                        Else
-                        {
-                            If (HPAE)
-                            {
-                                Return (0x0B)
-                            }
-                        }
-                        Return (0x00)
+                        Return (0x0F)
                     }
                     Method (_CRS, 0, Serialized)
                     {
