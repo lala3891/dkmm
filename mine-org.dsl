@@ -9894,8 +9894,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
     {
         PTS (Arg0)
     }
+    Method (PINI, 0, NotSerialized)
+    {
+        \_SB.PCI0.LPCB.EC0.TSDS ()
+        \_SB.PCI0.PEGR.GFX0.DOFF ()
+    }
     Method (_WAK, 1, Serialized)
     {
+        PINI ()
         WAK (Arg0)
         Return (Package (0x02)
         {
@@ -10014,6 +10020,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 1, "_ASUS_", "NoteBook", 0x00000000)
         Method (_INI, 0, NotSerialized)
         {
             Store (0x07D0, OSYS)
+            PINI ()
             If (CondRefOf (\_OSI, Local0))
             {
                 If (\_OSI ("Linux"))
